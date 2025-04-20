@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "side": "pastcrafter:block/old_oak_log_vertical",
+        "end": "pastcrafter:block/old_oak_log_side"
+    }
+} 

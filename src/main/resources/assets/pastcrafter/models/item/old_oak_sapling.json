@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "pastcrafter:block/old_oak_sapling"
+  }
+} 

@@ -1,0 +1,7 @@
+{
+    "render_type": "minecraft:cutout",
+    "parent": "block/cross",
+    "textures": {
+        "cross": "pastcrafter:block/old_oak_sapling"
+    }
+} 
