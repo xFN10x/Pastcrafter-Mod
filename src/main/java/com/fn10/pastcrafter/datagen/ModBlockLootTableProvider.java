@@ -28,6 +28,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     protected void generate() {
         dropSelf(PastCrafterBlocks.Old_Oak_Log.get());
         dropSelf(PastCrafterBlocks.Old_Oak_Sapling.get());
+        dropSelf(PastCrafterBlocks.Past_Extracter.get());
+        this.add(PastCrafterBlocks.Old_Oak_Leaves.get(), block ->
+                createLeavesDrops(block, PastCrafterBlocks.Old_Oak_Sapling.get(), NORMAL_LEAVES_SAPLING_CHANCES));
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

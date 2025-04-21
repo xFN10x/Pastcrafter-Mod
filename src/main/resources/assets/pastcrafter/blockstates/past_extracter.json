@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "": {
+            "render_type": "minecraft:translucent",
+            "model": "pastcrafter:block/past_extracter"
+        }
+    }
+}

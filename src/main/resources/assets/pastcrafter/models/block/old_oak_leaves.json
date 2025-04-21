@@ -1,0 +1,6 @@
+{
+    "parent": "block/leaves",
+    "textures": {
+        "all": "pastcrafter:block/old_oak_leaves"
+    }
+} 

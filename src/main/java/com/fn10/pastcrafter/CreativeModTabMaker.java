@@ -26,8 +26,12 @@ public class CreativeModTabMaker {
     .icon(() -> new ItemStack(PastCrafterBlocks.Old_Oak_Sapling.get().asItem()))
 
     .displayItems((parameters, output) -> {
-        output.accept(PastCrafterBlocks.Old_Oak_Sapling.get().asItem());
-        output.accept(PastCrafterBlocks.Old_Oak_Log.get().asItem());
+        PastCrafterBlocks.BLOCKS.getEntries().forEach( (blockRegistryObject) -> {
+            output.accept(blockRegistryObject.get().asItem());
+        });
+        PastCrafer.ITEMS.getEntries().forEach( (itemRegistryObject) -> {
+            output.accept(new ItemStack(itemRegistryObject.get()));
+        });
     })
 
     .build()
