@@ -1,4 +1,4 @@
-package com.fn10.pastcrafter;
+package com.fn10.pastcrafter.blocks.be.blocks;
 
 import java.util.function.Supplier;
 
@@ -24,7 +24,7 @@ public static void onRegisterItems(final RegisterEvent event) {
             Supplier<Item> blockItemFactory = () -> new BlockItem(block, properties);
             //if (event2.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             //    event2.accept(blockItemFactory);
-            //    event2.accept(block); // Takes in an ItemLike, assumes block has registered item
+            //    event2.accept(block);
             //  }
             event.register(ForgeRegistries.Keys.ITEMS, blockRegistryObject.getId(), blockItemFactory);
         });

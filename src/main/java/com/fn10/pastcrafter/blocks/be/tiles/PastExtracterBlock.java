@@ -1,9 +1,8 @@
-package com.fn10.pastcrafter.blocks.be.blocks;
+package com.fn10.pastcrafter.blocks.be.tiles;
 
 import javax.annotation.Nullable;
 
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks.TileEntityInit;
-import com.fn10.pastcrafter.blocks.be.tiles.PastExtracterTile;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -42,7 +41,7 @@ public class PastExtracterBlock extends Block implements EntityBlock {
             if (!pLevel.isClientSide()) {
                 ((ServerPlayer) pPlayer).openMenu(new SimpleMenuProvider(be, Component.literal("Past Extracter")),
                         pPos);
-                return ItemInteractionResult.SUCCESS;
+                return ItemInteractionResult.CONSUME;
             } else {
                 return ItemInteractionResult.FAIL;
             }

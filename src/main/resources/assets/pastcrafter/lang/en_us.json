@@ -1,0 +1,11 @@
+{
+    "item_group.pastcrafter.pastcrafter" : "Past Crafter",
+    "container.pastcrafter.past_extracter" : "Past Extracter",
+    "block.pastcrafter.old_oak_log" : "Old Oak Log",
+    "block.pastcrafter.old_oak_leaves" : "Old Oak Leaves",
+    "block.pastcrafter.old_oak_sapling" : "Old Oak Sapling",
+    "block.pastcrafter.past_extracter" : "Past Extracter",
+    "pastcrafter.subtitle.past_extracter_process_start" : "Past Extracter Starts...",
+    "pastcrafter.subtitle.past_extracter_process_tick" : "Past Extracter Process ticking...",
+    "pastcrafter.subtitle.past_extracter_process_end": "Past Extractor Finished."
+}

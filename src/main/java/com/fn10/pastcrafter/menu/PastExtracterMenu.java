@@ -1,5 +1,7 @@
 package com.fn10.pastcrafter.menu;
 
+//import org.apache.logging.log4j.core.config.builder.api.Component;
+
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks;
 import com.fn10.pastcrafter.blocks.be.tiles.PastExtracterTile;
 
@@ -16,7 +18,7 @@ import net.minecraftforge.items.SlotItemHandler;
 
 public class PastExtracterMenu extends AbstractContainerMenu{
 
-    public final PastExtracterTile blockEntity;
+    public PastExtracterTile blockEntity;
     private final Level level;
 
     public PastExtracterMenu(int pContainerId, Inventory inv, BlockEntity blockEntity) {
@@ -27,8 +29,8 @@ public class PastExtracterMenu extends AbstractContainerMenu{
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 0, 58, 26));
-        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 1, 58, 55));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 0, 59, 20)); 
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 1, 59, 49));
     }
 
     protected PastExtracterMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {

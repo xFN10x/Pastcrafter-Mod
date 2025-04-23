@@ -21,7 +21,7 @@ public class CreativeModTabMaker {
 
     public static final RegistryObject<CreativeModeTab> CREATIVE_TAB = REGISTRAR.register("pastcrafter", () -> CreativeModeTab.builder()
     // Set name of tab to display
-    .title(Component.translatable("item_group." + MID + ".pastcrafter"))
+    .title(Component.translatable("item_group.pastcrafter.pastcrafter"))
     //Set icon of creative tab
     .icon(() -> new ItemStack(PastCrafterBlocks.Old_Oak_Sapling.get().asItem()))
 

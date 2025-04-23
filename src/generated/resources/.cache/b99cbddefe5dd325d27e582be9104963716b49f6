@@ -1,2 +1,4 @@
-// 1.21.1	2025-04-20T16:14:02.158998	Tags for minecraft:item mod id pastcrafter
+// 1.21.1	2025-04-23T17:00:49.2035555	Tags for minecraft:item mod id pastcrafter
 3bdde41ab8b15685e66edc4d867f9a2f2b6051d8 data/minecraft/tags/item/logs_that_burn.json
+2e0ada6a835e8b0f902f82a72452d5602a6064e5 data/pastcrafter/tags/item/bindable_item.json
+faf41706686ed12d0232268fde7f5c1dbc984295 data/pastcrafter/tags/item/old_item.json
