@@ -8,10 +8,8 @@ import com.fn10.pastcrafter.menu.PastCrafterMenuTypes;
 import com.fn10.pastcrafter.menu.PastExtracterScreen;
 
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -45,20 +43,6 @@ public class PastCrafer {
             }
         }
 
-    }
-
-    private void setup(final FMLClientSetupEvent event) {
-        event.enqueueWork(() -> {
-
-            // TOO When adding new past blocks, add them to this list!
-            ItemProperties.register(PastCrafterItems.HISTORY_BOOK.get(),
-                    ResourceLocation.fromNamespaceAndPath(MID, "past_level"), (stack, level, living, id) -> {
-                        @SuppressWarnings("null")
-                        Float past_level = stack.getComponents().get(PastCrafterComponets.PAST_EXP.get()) / 100; // Past EXP divided by 100, cause stupid limitations
-
-                        return past_level == null || past_level == 0f ? past_level:0f ;
-                    });
-        });
     }
 
     public PastCrafer(FMLJavaModLoadingContext context) {

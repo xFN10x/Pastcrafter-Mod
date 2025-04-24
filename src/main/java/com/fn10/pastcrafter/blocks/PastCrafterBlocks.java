@@ -60,6 +60,8 @@ public class PastCrafterBlocks {
 
         public static final RegistryObject<Block> Past_Extracter = BLOCKS.register("past_extracter",
                         () -> new PastExtracterBlock(
-                                        BlockBehaviour.Properties.of().destroyTime(2).sound(SoundType.STONE)));
+                                        BlockBehaviour.Properties.of().destroyTime(2).sound(SoundType.STONE)
+                                                        .noOcclusion().mapColor(MapColor.STONE)
+                                                        .requiresCorrectToolForDrops().dynamicShape()));
 
 }

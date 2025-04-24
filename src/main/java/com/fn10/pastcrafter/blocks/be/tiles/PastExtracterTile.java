@@ -10,7 +10,6 @@ import com.fn10.pastcrafter.blocks.PastCrafterBlocks.TileEntityInit;
 import com.fn10.pastcrafter.componate.PastCrafterComponets;
 import com.fn10.pastcrafter.items.PastCrafterItems;
 import com.fn10.pastcrafter.menu.PastExtracterMenu;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -69,7 +68,6 @@ public class PastExtracterTile extends BlockEntity implements MenuProvider {
             super(TileEntityInit.Past_Extracter_Entity.get(), pos, state);
         }
 
-    @SuppressWarnings("null")
     public static <T extends BlockEntity> void tick(Level level, BlockPos pos, BlockState state, T be) {
         PastExtracterTile tile = (PastExtracterTile) be;
         ItemStack ingre = tile.inventory.getStackInSlot(0);
@@ -85,14 +83,24 @@ public class PastExtracterTile extends BlockEntity implements MenuProvider {
                 tile.CanPlayEndSound = true;
                 if (tile.Timer >= 600) {
                     level.playSound(null, pos, tile.Block_End, SoundSource.BLOCKS);
-                    tile.CanStart = false;
                     tile.inventory.extractItem(0, 1, false);
+
+                    Float outexp = out.get(PastCrafterComponets.PAST_EXP.get());
+                    Float ingreexp = ingre.get(PastCrafterComponets.PAST_EXP.get());
+
+                    if (ingreexp == null) {
+                        tile.Timer = 0;
+                        return;
+                    }
+                    if (outexp == null) {
+                        outexp = 0f;
+                    }
                     
                     if (out.is(Items.BOOK)) {
                         tile.inventory.setStackInSlot(1, new ItemStack(PastCrafterItems.HISTORY_BOOK.get()));
-                        out.set(PastCrafterComponets.PAST_EXP.get(), ingre.get(PastCrafterComponets.PAST_EXP.get()));
+                        out.set(PastCrafterComponets.PAST_EXP.get(), ingreexp);
                     } else if (out.is(PastCrafterItems.HISTORY_BOOK.get())) {
-                        out.set(PastCrafterComponets.PAST_EXP.get(), out.get(PastCrafterComponets.PAST_EXP.get()) + ingre.get(PastCrafterComponets.PAST_EXP.get()));
+                        out.set(PastCrafterComponets.PAST_EXP.get(), outexp + ingreexp);
                     }
                     
                     tile.Timer = 0;

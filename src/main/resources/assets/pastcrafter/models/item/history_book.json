@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-        "layer0": "pastcrafter:items/history_book_2"
+        "layer0": "pastcrafter:items/history_book"
     }
 }

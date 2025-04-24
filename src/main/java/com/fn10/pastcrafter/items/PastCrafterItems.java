@@ -5,7 +5,6 @@ import java.util.List;
 import com.fn10.pastcrafter.PastCrafer;
 import com.fn10.pastcrafter.componate.PastCrafterComponets;
 
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.Item;
@@ -35,7 +34,7 @@ public class PastCrafterItems {
 
                         if (exp != null) {
                             pTooltipComponents.add(Component.literal(
-                            "Past EXP: " + Mth.floor(exp * 100)));
+                            "Past EXP: " + Mth.floor(exp)));
                         } else {
                             pTooltipComponents.add(Component.literal("Past EXP: ???"));
                         }
