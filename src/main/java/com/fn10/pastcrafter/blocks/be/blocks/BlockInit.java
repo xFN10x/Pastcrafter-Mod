@@ -3,6 +3,7 @@ package com.fn10.pastcrafter.blocks.be.blocks;
 import java.util.function.Supplier;
 
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks;
+import com.fn10.pastcrafter.componate.PastCrafterComponets;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -21,6 +22,13 @@ public static void onRegisterItems(final RegisterEvent event) {
         PastCrafterBlocks.BLOCKS.getEntries().forEach( (blockRegistryObject) -> {
             Block block = blockRegistryObject.get();
             Item.Properties properties = new Item.Properties();
+            if (block.equals(PastCrafterBlocks.Old_Oak_Log.get())) {
+                properties.component(PastCrafterComponets.PAST_EXP.get(), 2f);
+            } else if (block.equals(PastCrafterBlocks.Old_Oak_Leaves.get())) {
+                properties.component(PastCrafterComponets.PAST_EXP.get(), 1f);
+            } else if (block.equals(PastCrafterBlocks.Old_Oak_Sapling.get())) {
+                properties.component(PastCrafterComponets.PAST_EXP.get(), 1f);
+            }
             Supplier<Item> blockItemFactory = () -> new BlockItem(block, properties);
             //if (event2.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             //    event2.accept(blockItemFactory);

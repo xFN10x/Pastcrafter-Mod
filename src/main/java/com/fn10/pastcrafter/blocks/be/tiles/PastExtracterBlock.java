@@ -41,9 +41,9 @@ public class PastExtracterBlock extends Block implements EntityBlock {
             if (!pLevel.isClientSide()) {
                 ((ServerPlayer) pPlayer).openMenu(new SimpleMenuProvider(be, Component.literal("Past Extracter")),
                         pPos);
-                return ItemInteractionResult.CONSUME;
+                return ItemInteractionResult.SUCCESS;
             } else {
-                return ItemInteractionResult.FAIL;
+                return ItemInteractionResult.SUCCESS;
             }
         } else {
             return ItemInteractionResult.FAIL;

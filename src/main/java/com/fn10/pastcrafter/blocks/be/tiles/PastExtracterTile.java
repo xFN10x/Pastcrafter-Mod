@@ -7,6 +7,8 @@ import org.jetbrains.annotations.NotNull;
 import com.fn10.pastcrafter.PastCrafer;
 import com.fn10.pastcrafter.PastCrafterTags;
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks.TileEntityInit;
+import com.fn10.pastcrafter.componate.PastCrafterComponets;
+import com.fn10.pastcrafter.items.PastCrafterItems;
 import com.fn10.pastcrafter.menu.PastExtracterMenu;
 
 import net.minecraft.core.BlockPos;
@@ -67,11 +69,13 @@ public class PastExtracterTile extends BlockEntity implements MenuProvider {
             super(TileEntityInit.Past_Extracter_Entity.get(), pos, state);
         }
 
+    @SuppressWarnings("null")
     public static <T extends BlockEntity> void tick(Level level, BlockPos pos, BlockState state, T be) {
         PastExtracterTile tile = (PastExtracterTile) be;
         ItemStack ingre = tile.inventory.getStackInSlot(0);
+        ItemStack out = tile.inventory.getStackInSlot(1);
 
-        if (!level.isClientSide() && ingre.getTags().anyMatch(tag -> tag.equals(PastCrafterTags.OLD_ITEM)) & tile.inventory.getStackInSlot(1).is(Items.BOOK)) { 
+        if (!level.isClientSide() && ingre.getTags().anyMatch(tag -> tag.equals(PastCrafterTags.OLD_ITEM)) & out.getTags().anyMatch(tag -> tag.equals(PastCrafterTags.BINDABLE))) { 
             
             if (!tile.Started && tile.CanStart) {
                 tile.Started = true;
@@ -79,6 +83,20 @@ public class PastExtracterTile extends BlockEntity implements MenuProvider {
             } else if (tile.Started) {
                 tile.Timer++;
                 tile.CanPlayEndSound = true;
+                if (tile.Timer >= 600) {
+                    level.playSound(null, pos, tile.Block_End, SoundSource.BLOCKS);
+                    tile.CanStart = false;
+                    tile.inventory.extractItem(0, 1, false);
+                    
+                    if (out.is(Items.BOOK)) {
+                        tile.inventory.setStackInSlot(1, new ItemStack(PastCrafterItems.HISTORY_BOOK.get()));
+                        out.set(PastCrafterComponets.PAST_EXP.get(), ingre.get(PastCrafterComponets.PAST_EXP.get()));
+                    } else if (out.is(PastCrafterItems.HISTORY_BOOK.get())) {
+                        out.set(PastCrafterComponets.PAST_EXP.get(), out.get(PastCrafterComponets.PAST_EXP.get()) + ingre.get(PastCrafterComponets.PAST_EXP.get()));
+                    }
+                    
+                    tile.Timer = 0;
+                }
             }
             if (PastCrafer.Math.isMultipleOf(tile.Timer, 28)) {
                 level.playSound(null, pos, tile.Block_Tick, SoundSource.BLOCKS);
@@ -88,7 +106,7 @@ public class PastExtracterTile extends BlockEntity implements MenuProvider {
             tile.Timer--;
         }
         tile.Timer = Mth.clamp(tile.Timer, 0, 600);
-        System.out.println("Timer value (tile): " + tile.Timer);
+        //System.out.println("Timer value (tile): " + tile.Timer);
         if (!level.isClientSide()) {
             level.sendBlockUpdated(pos, state, state, 3); // Notify the client of the update
         }

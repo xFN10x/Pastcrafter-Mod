@@ -12,6 +12,7 @@ import org.jetbrains.annotations.Nullable;
 import com.fn10.pastcrafter.PastCrafer;
 import com.fn10.pastcrafter.PastCrafterTags;
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks;
+import com.fn10.pastcrafter.items.PastCrafterItems;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -32,7 +33,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(PastCrafterBlocks.Old_Oak_Leaves.get().asItem())
                 .add(PastCrafterBlocks.Old_Oak_Sapling.get().asItem());
         tag(PastCrafterTags.BINDABLE)
-                .add(Items.BOOK);
+                .add(Items.BOOK)
+                .add(PastCrafterItems.HISTORY_BOOK.get());
 
     }
 }

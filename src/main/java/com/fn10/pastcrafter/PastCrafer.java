@@ -2,6 +2,8 @@ package com.fn10.pastcrafter;
 
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks;
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks.TileEntityInit;
+import com.fn10.pastcrafter.componate.PastCrafterComponets;
+import com.fn10.pastcrafter.items.PastCrafterItems;
 import com.fn10.pastcrafter.menu.PastCrafterMenuTypes;
 import com.fn10.pastcrafter.menu.PastExtracterScreen;
 
@@ -23,9 +25,6 @@ public class PastCrafer {
 
     public static final String MID = "pastcrafter";
 
-    // Create a Deferred Register to hold Items which will all be registered under
-    // the "examplemod" namespace
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MID);
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS,
             MID);
 
@@ -33,7 +32,7 @@ public class PastCrafer {
             ResourceLocation.fromNamespaceAndPath(PastCrafer.MID, "past_extracter_process_start"));
     public static final SoundEvent PAST_EXTRACTER_TICK_SOUND = SoundEvent.createVariableRangeEvent(
             ResourceLocation.fromNamespaceAndPath(PastCrafer.MID, "past_extracter_process_tick"));
-            public static final SoundEvent PAST_EXTRACTER_STOP_SOUND = SoundEvent.createVariableRangeEvent(
+    public static final SoundEvent PAST_EXTRACTER_STOP_SOUND = SoundEvent.createVariableRangeEvent(
             ResourceLocation.fromNamespaceAndPath(PastCrafer.MID, "past_extracter_process_finished"));
 
     public class Math {
@@ -51,12 +50,13 @@ public class PastCrafer {
     private void setup(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
 
-            //TODO When adding new past blocks, add them to this list!
-            ItemProperties.register(PastCrafterBlocks.Old_Oak_Log.get().asItem(),
-                    ResourceLocation.fromNamespaceAndPath(MID, "past_exp"), (stack, level, living, id) -> {
-                        Float past_exp = 0.02f; //Past EXP divided by 100, cause stupid limitations
-                        
-                        return past_exp;
+            // TOO When adding new past blocks, add them to this list!
+            ItemProperties.register(PastCrafterItems.HISTORY_BOOK.get(),
+                    ResourceLocation.fromNamespaceAndPath(MID, "past_level"), (stack, level, living, id) -> {
+                        @SuppressWarnings("null")
+                        Float past_level = stack.getComponents().get(PastCrafterComponets.PAST_EXP.get()) / 100; // Past EXP divided by 100, cause stupid limitations
+
+                        return past_level == null || past_level == 0f ? past_level:0f ;
                     });
         });
     }
@@ -73,6 +73,10 @@ public class PastCrafer {
         PastCrafterMenuTypes.register(modEventBus);
 
         SOUNDS.register(modEventBus);
+
+        PastCrafterItems.register(modEventBus);
+
+        PastCrafterComponets.register(modEventBus);
 
         modEventBus.register(ClientModEvents.class);
 

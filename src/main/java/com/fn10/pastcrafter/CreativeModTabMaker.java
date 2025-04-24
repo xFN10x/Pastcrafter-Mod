@@ -1,6 +1,7 @@
 package com.fn10.pastcrafter;
 
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks;
+import com.fn10.pastcrafter.items.PastCrafterItems;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -29,7 +30,7 @@ public class CreativeModTabMaker {
         PastCrafterBlocks.BLOCKS.getEntries().forEach( (blockRegistryObject) -> {
             output.accept(blockRegistryObject.get().asItem());
         });
-        PastCrafer.ITEMS.getEntries().forEach( (itemRegistryObject) -> {
+        PastCrafterItems.ITEMS.getEntries().forEach( (itemRegistryObject) -> {
             output.accept(new ItemStack(itemRegistryObject.get()));
         });
     })

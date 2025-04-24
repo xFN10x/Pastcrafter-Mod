@@ -8,6 +8,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
 import com.fn10.pastcrafter.PastCrafer;
+import com.fn10.pastcrafter.PastCrafterTags;
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks;
 
 import java.util.concurrent.CompletableFuture;
@@ -21,5 +22,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(BlockTags.LOGS_THAT_BURN)
                 .add(PastCrafterBlocks.Old_Oak_Log.get());
+        this.tag(PastCrafterTags.OLD_BLOCK)
+                .add(PastCrafterBlocks.Old_Oak_Log.get())
+                .add(PastCrafterBlocks.Old_Oak_Leaves.get())
+                .add(PastCrafterBlocks.Old_Oak_Sapling.get());
     }
 }
