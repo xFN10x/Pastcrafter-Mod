@@ -24,8 +24,8 @@ public class ModPlacedFeatures {
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
         register(context, OLD_OAK_KEY_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.OLD_OAK_TREE),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2),
-                        PastCrafterBlocks.Old_Oak_Sapling.get()));
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.05f, 0),
+                        PastCrafterBlocks.Beta_Oak_Sapling.get()));
     }
 
 

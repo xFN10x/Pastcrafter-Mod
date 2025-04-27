@@ -1,5 +1,8 @@
-// 1.21.1	2025-04-20T20:33:30.375019	Loot Tables
-c5a61ec43c07efefbbbed776ba6eca4f0ca21a46 data/pastcrafter/loot_table/blocks/old_oak_leaves.json
-234d295aa3276987aea0a5076405233364d56e63 data/pastcrafter/loot_table/blocks/old_oak_log.json
-b7879453701b4b550581fbadf1cd73783bfe9dee data/pastcrafter/loot_table/blocks/old_oak_sapling.json
+// 1.21.1	2025-04-27T12:18:54.6842549	Loot Tables
+df13427d79bdb75f36379f7873eb47b82b5e17ac data/pastcrafter/loot_table/blocks/beta_oak_leaves.json
+2faf9b6291e69f90162f2f74128d682b845ac572 data/pastcrafter/loot_table/blocks/beta_oak_log.json
+a91093944ac17630ace68bdfd709d7cfd12b2ea2 data/pastcrafter/loot_table/blocks/beta_oak_planks.json
+64425503278b7d120a6b29324a3905f90f768dba data/pastcrafter/loot_table/blocks/beta_oak_sapling.json
+a09da85c5a901087d747c80c85bb7dfa7332d918 data/pastcrafter/loot_table/blocks/beta_oak_stairs.json
+75425e1f41232bf245651b2cea15acfc2ee6782a data/pastcrafter/loot_table/blocks/distant_memory.json
 dc52f63122a10e8f4c8093a6258b61846bc8b80e data/pastcrafter/loot_table/blocks/past_extracter.json

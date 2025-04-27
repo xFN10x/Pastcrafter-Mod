@@ -17,9 +17,10 @@
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "pastcrafter:old_oak_leaves",
+        "Name": "pastcrafter:beta_oak_leaves",
         "Properties": {
           "distance": "7",
+          "past_exp": "1",
           "persistent": "false",
           "waterlogged": "false"
         }
@@ -42,7 +43,10 @@
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "pastcrafter:old_oak_log"
+        "Name": "pastcrafter:beta_oak_log",
+        "Properties": {
+          "past_exp": "2"
+        }
       }
     }
   }

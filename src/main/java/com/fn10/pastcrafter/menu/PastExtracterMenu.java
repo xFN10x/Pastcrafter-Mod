@@ -55,7 +55,7 @@ public class PastExtracterMenu extends AbstractContainerMenu{
     // THIS YOU HAVE TO DEFINE!
     private static final int TE_INVENTORY_SLOT_COUNT = 2;  // must be the number of slots you have!
     @Override
-    public ItemStack quickMoveStack(Player playerIn, int pIndex) {
+    public ItemStack quickMoveStack(@SuppressWarnings("null") Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);
         if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
         ItemStack sourceStack = sourceSlot.getItem();
@@ -88,7 +88,7 @@ public class PastExtracterMenu extends AbstractContainerMenu{
     }
 
     @Override
-    public boolean stillValid(Player pPlayer) {
+    public boolean stillValid(@SuppressWarnings("null") Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
                 pPlayer, PastCrafterBlocks.Past_Extracter.get());
     }

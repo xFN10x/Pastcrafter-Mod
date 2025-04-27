@@ -23,7 +23,7 @@ public class PastExtracterScreen extends AbstractContainerScreen<PastExtracterMe
     }
 
     @Override
-    protected void renderBg(GuiGraphics pGuiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
+    protected void renderBg(@SuppressWarnings("null") GuiGraphics pGuiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, GUI_TEXTURE);
@@ -37,12 +37,12 @@ public class PastExtracterScreen extends AbstractContainerScreen<PastExtracterMe
         //System.out.println("Timer value: " + k);
         int l = Mth.floor(Mth.clamp((51f * k / 600f), 0f,51f));
         if (l > 0) {
-            pGuiGraphics.blitSprite(PROGRESS_BAR, 28, 51, 0, 0, x + 77, y + 18, 28, l);
+            pGuiGraphics.blitSprite(PROGRESS_BAR, 28, 51, 0, 0, x + 75, y + 18, 28, l);
         }
     }
 
     @Override
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float delta) {
+    public void render(@SuppressWarnings("null") GuiGraphics guiGraphics, int mouseX, int mouseY, float delta) {
         super.render(guiGraphics, mouseX, mouseY, delta);
         renderTooltip(guiGraphics, mouseX, mouseY);
     }

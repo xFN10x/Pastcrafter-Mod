@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#c:is_forest",
+  "features": "pastcrafter:old_oak_placed",
+  "step": "vegetal_decoration"
+}

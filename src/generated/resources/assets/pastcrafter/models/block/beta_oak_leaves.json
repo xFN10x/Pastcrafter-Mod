@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/leaves",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "pastcrafter:block/beta_oak_leaves"
+  }
+}

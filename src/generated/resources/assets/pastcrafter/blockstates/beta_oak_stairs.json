@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "pastcrafter:block/beta_stairs",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "pastcrafter:block/beta_stairs"
+    },
+    "facing=south": {
+      "model": "pastcrafter:block/beta_stairs",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "pastcrafter:block/beta_stairs",
+      "y": 270
+    }
+  }
+}

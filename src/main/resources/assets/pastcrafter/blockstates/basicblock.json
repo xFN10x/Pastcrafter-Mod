@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "": {
+            "textures": {
+                "all": "pastcrafter:blocks/"
+            },
+            "model": "block/cube_all",
+            "uvlock": true
+        }
+    }
+}

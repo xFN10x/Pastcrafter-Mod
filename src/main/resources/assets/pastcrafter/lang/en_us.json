@@ -7,5 +7,14 @@
     "block.pastcrafter.past_extracter" : "Past Extracter",
     "pastcrafter.subtitle.past_extracter_process_start" : "Past Extracter Starts...",
     "pastcrafter.subtitle.past_extracter_process_tick" : "Past Extracter Process ticking...",
-    "pastcrafter.subtitle.past_extracter_process_end": "Past Extractor Finished."
+    "pastcrafter.subtitle.past_extracter_process_end": "Past Extractor Finished.",
+    "block.pastcrafter.beta_oak_leaves" : "Beta Oak Leaves",
+    "block.pastcrafter.beta_oak_log" : "Beta Oak Logs",
+    "block.pastcrafter.beta_oak_sapling" : "Beta Oak Sapling",
+    "block.pastcrafter.beta_oak_planks" : "Beta Oak Planks",
+    "block.pastcrafter.beta_oak_stairs" : "Beta Oak Stairs",
+    "block.pastcrafter.distant_memory" : "Distant Memory",
+    "item.pastcrafter.eye_of_the_past" : "Eye of the Past",
+    "item.pastcrafter.history_book" : "History Book",
+    "item.pastcrafter.old_wooden_sword" : "Beta Wooden Sword"
 }

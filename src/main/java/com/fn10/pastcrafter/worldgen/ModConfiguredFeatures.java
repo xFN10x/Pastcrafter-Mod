@@ -22,14 +22,14 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> OLD_OAK_TREE = registerKey("old_oak_tree");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
-        System.out.println("Registering OLD_OAK_TREE feature: " + OLD_OAK_TREE.location());
+        //System.out.println("Registering OLD_OAK_TREE feature: " + OLD_OAK_TREE.location());
         register(context, OLD_OAK_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                BlockStateProvider.simple(PastCrafterBlocks.Old_Oak_Log.get()),
+            BlockStateProvider.simple(PastCrafterBlocks.Beta_Oak_Log.get()),
                 new StraightTrunkPlacer(5, 1, 0),
 
-                BlockStateProvider.simple(PastCrafterBlocks.Old_Oak_Leaves.get()),
+                BlockStateProvider.simple(PastCrafterBlocks.Beta_Oak_Leaves.get()),
                 new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
-
+        
                 new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
     }
 

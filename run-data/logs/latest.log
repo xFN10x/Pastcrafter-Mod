@@ -1,23 +1,27 @@
-[24Apr2025 20:36:47.256] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 17, --assetsDir, C:\Users\mathd\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, pastcrafter, --all, --output, C:\Users\mathd\Documents\MC Mods\pastcrafter-1.21.1-52.1.0-mdk\src\generated\resources, --existing, C:\Users\mathd\Documents\MC Mods\pastcrafter-1.21.1-52.1.0-mdk\src\main\resources]
-[24Apr2025 20:36:47.259] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.6+7-LTS
-[24Apr2025 20:36:47.259] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.4 starting: java version 21.0.6 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
-[24Apr2025 20:36:47.419] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
-[24Apr2025 20:36:47.570] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/mathd/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
-[24Apr2025 20:36:48.567] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[24Apr2025 20:36:49.345] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\mathd\.gradle\caches\forge_gradle\assets, --assetIndex, 17, --mod, pastcrafter, --all, --output, C:\Users\mathd\Documents\MC Mods\pastcrafter-1.21.1-52.1.0-mdk\src\generated\resources, --existing, C:\Users\mathd\Documents\MC Mods\pastcrafter-1.21.1-52.1.0-mdk\src\main\resources]
-[24Apr2025 20:36:54.871] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 52.1.0, for MC 1.21.1 with MCP 20240808.132146
-[24Apr2025 20:36:54.871] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v52.1.0 Initialized
-[24Apr2025 20:36:54.909] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
-[24Apr2025 20:36:55.255] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [pastcrafter]
-[24Apr2025 20:36:55.332] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/mathd/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21.1-52.1.0_mapped_official_1.21.1/forge-1.21.1-52.1.0_mapped_official_1.21.1-recomp.jar%230!/assets/.mcassetsroot' uses unexpected schema
-[24Apr2025 20:36:55.333] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/mathd/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21.1-52.1.0_mapped_official_1.21.1/forge-1.21.1-52.1.0_mapped_official_1.21.1-recomp.jar%230!/data/.mcassetsroot' uses unexpected schema
-[24Apr2025 20:36:55.474] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[24Apr2025 20:36:55.738] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 263 ms
-[24Apr2025 20:36:55.738] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id pastcrafter
-[24Apr2025 20:36:55.755] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id pastcrafter finished after 15 ms
-[24Apr2025 20:36:55.755] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id pastcrafter
-[24Apr2025 20:36:55.756] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id pastcrafter finished after 1 ms
-[24Apr2025 20:36:55.757] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
-[24Apr2025 20:36:55.908] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 151 ms
-[24Apr2025 20:36:55.908] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 434 ms
-[24Apr2025 20:36:55.913] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 10, old count: 10, new count: 11, removed stale: 0, written: 0
+[27Apr2025 12:18:47.448] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 17, --assetsDir, C:\Users\mathd\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, pastcrafter, --all, --output, C:\Users\mathd\Documents\MC Mods\pastcrafter-1.21.1-52.1.0-mdk\src\generated\resources, --existing, C:\Users\mathd\Documents\MC Mods\pastcrafter-1.21.1-52.1.0-mdk\src\main\resources]
+[27Apr2025 12:18:47.451] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.6+7-LTS
+[27Apr2025 12:18:47.451] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.4 starting: java version 21.0.6 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[27Apr2025 12:18:47.554] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
+[27Apr2025 12:18:47.643] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/mathd/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
+[27Apr2025 12:18:48.504] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[27Apr2025 12:18:49.110] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\mathd\.gradle\caches\forge_gradle\assets, --assetIndex, 17, --mod, pastcrafter, --all, --output, C:\Users\mathd\Documents\MC Mods\pastcrafter-1.21.1-52.1.0-mdk\src\generated\resources, --existing, C:\Users\mathd\Documents\MC Mods\pastcrafter-1.21.1-52.1.0-mdk\src\main\resources]
+[27Apr2025 12:18:53.491] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 52.1.0, for MC 1.21.1 with MCP 20240808.132146
+[27Apr2025 12:18:53.491] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v52.1.0 Initialized
+[27Apr2025 12:18:53.517] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
+[27Apr2025 12:18:54.118] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [pastcrafter]
+[27Apr2025 12:18:54.168] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/mathd/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21.1-52.1.0_mapped_official_1.21.1/forge-1.21.1-52.1.0_mapped_official_1.21.1-recomp.jar%230!/assets/.mcassetsroot' uses unexpected schema
+[27Apr2025 12:18:54.168] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/mathd/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21.1-52.1.0_mapped_official_1.21.1/forge-1.21.1-52.1.0_mapped_official_1.21.1-recomp.jar%230!/data/.mcassetsroot' uses unexpected schema
+[27Apr2025 12:18:54.290] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[27Apr2025 12:18:54.513] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 221 ms
+[27Apr2025 12:18:54.513] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id pastcrafter
+[27Apr2025 12:18:54.523] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id pastcrafter finished after 9 ms
+[27Apr2025 12:18:54.523] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id pastcrafter
+[27Apr2025 12:18:54.525] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id pastcrafter finished after 1 ms
+[27Apr2025 12:18:54.525] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: pastcrafter
+[27Apr2025 12:18:54.531] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: pastcrafter finished after 6 ms
+[27Apr2025 12:18:54.532] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: pastcrafter
+[27Apr2025 12:18:54.676] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: pastcrafter finished after 143 ms
+[27Apr2025 12:18:54.676] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[27Apr2025 12:18:54.682] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 5 ms
+[27Apr2025 12:18:54.682] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 391 ms
+[27Apr2025 12:18:54.688] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 36, old count: 32, new count: 37, removed stale: 0, written: 5

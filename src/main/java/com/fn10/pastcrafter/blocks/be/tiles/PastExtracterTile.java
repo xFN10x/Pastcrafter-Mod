@@ -125,7 +125,7 @@ public class PastExtracterTile extends BlockEntity implements MenuProvider {
     }
     @Override
     @Nullable
-    public AbstractContainerMenu createMenu(int p_39954_, Inventory p_39955_, Player p_39956_) {
+    public AbstractContainerMenu createMenu(int p_39954_, @SuppressWarnings("null") Inventory p_39955_, @SuppressWarnings("null") Player p_39956_) {
         return new PastExtracterMenu(p_39954_, p_39955_, this);
     }
 
@@ -141,20 +141,20 @@ public class PastExtracterTile extends BlockEntity implements MenuProvider {
     }
 
     @Override
-public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
+public CompoundTag getUpdateTag(@SuppressWarnings("null") HolderLookup.Provider pRegistries) {
     CompoundTag tag = super.getUpdateTag(pRegistries);
     tag.putInt("Timer", this.Timer); // Add Timer to the tag
     return tag;
 }
 
     @Override
-    protected void saveAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
+    protected void saveAdditional(@SuppressWarnings("null") CompoundTag pTag, @SuppressWarnings("null") HolderLookup.Provider pRegistries) {
         super.saveAdditional(pTag, pRegistries);
         pTag.put("inventory", inventory.serializeNBT(pRegistries));
     }
 
     @Override
-    protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
+    protected void loadAdditional(@SuppressWarnings("null") CompoundTag pTag, @SuppressWarnings("null") HolderLookup.Provider pRegistries) {
         super.loadAdditional(pTag, pRegistries);
         inventory.deserializeNBT(pRegistries, pTag.getCompound("inventory"));
         this.Timer = pTag.getInt("Timer"); // Load Timer from the tag

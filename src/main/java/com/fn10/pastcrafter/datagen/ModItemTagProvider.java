@@ -17,24 +17,26 @@ import com.fn10.pastcrafter.items.PastCrafterItems;
 import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagProvider extends ItemTagsProvider {
-    public ModItemTagProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> completableFuture,
-            CompletableFuture<TagLookup<Block>> lookupCompletableFuture,
-            @Nullable ExistingFileHelper existingFileHelper) {
-        super(packOutput, completableFuture, lookupCompletableFuture, PastCrafer.MID, existingFileHelper);
-    }
+        public ModItemTagProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> completableFuture,
+                        CompletableFuture<TagLookup<Block>> lookupCompletableFuture,
+                        @Nullable ExistingFileHelper existingFileHelper) {
+                super(packOutput, completableFuture, lookupCompletableFuture, PastCrafer.MID, existingFileHelper);
+        }
 
-    @Override
-    protected void addTags(HolderLookup.Provider pProvider) {
-        tag(ItemTags.LOGS_THAT_BURN)
-                .add(PastCrafterBlocks.Old_Oak_Log.get().asItem());
+        @Override
+        protected void addTags(@SuppressWarnings("null") HolderLookup.Provider pProvider) {
+                tag(ItemTags.LOGS_THAT_BURN)
+                                .add(PastCrafterBlocks.Beta_Oak_Log.get().asItem());
 
-        tag(PastCrafterTags.OLD_ITEM)
-                .add(PastCrafterBlocks.Old_Oak_Log.get().asItem())
-                .add(PastCrafterBlocks.Old_Oak_Leaves.get().asItem())
-                .add(PastCrafterBlocks.Old_Oak_Sapling.get().asItem());
-        tag(PastCrafterTags.BINDABLE)
-                .add(Items.BOOK)
-                .add(PastCrafterItems.HISTORY_BOOK.get());
+                tag(PastCrafterTags.OLD_ITEM)
+                                .add(PastCrafterBlocks.Beta_Oak_Log.get().asItem())
+                                .add(PastCrafterBlocks.Beta_Oak_Planks.get().asItem())
+                                .add(PastCrafterBlocks.Distant_Memory.get().asItem());
+                tag(PastCrafterTags.BINDABLE)
+                                .add(Items.BOOK)
+                                .add(PastCrafterItems.HISTORY_BOOK.get());
+                tag(ItemTags.PLANKS)
+                                .add(PastCrafterBlocks.Beta_Oak_Planks.get().asItem());
 
-    }
+        }
 }

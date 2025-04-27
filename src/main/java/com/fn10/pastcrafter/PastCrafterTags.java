@@ -13,6 +13,7 @@ public class PastCrafterTags {
     //Item Tags
     public static final TagKey<Item> OLD_ITEM = bind("old_item", Registries.ITEM);
     public static final TagKey<Item> BINDABLE = bind("bindable_item", Registries.ITEM);
+    
 
     //Block Tags
     public static final TagKey<Block> OLD_BLOCK = bind("old_block", Registries.BLOCK);

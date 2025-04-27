@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "pastcrafter:block/beta_log_top",
+    "side": "pastcrafter:block/beta_oak_log"
+  }
+}

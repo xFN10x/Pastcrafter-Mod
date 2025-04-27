@@ -1,8 +1,10 @@
 {
-	"credit": "Made with Blockbench",
+	"credit": "Made with Blockbench by _FN10_",
+	"render_type": "minecraft:translucent",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "pastcrafter:block/past_extracter_main"
+		"0": "pastcrafter:block/past_extracter_main",
+		"particle": "pastcrafter:block/past_extracter_main"
 	},
 	"elements": [
 		{

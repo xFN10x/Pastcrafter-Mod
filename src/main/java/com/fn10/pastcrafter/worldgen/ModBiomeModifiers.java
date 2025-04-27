@@ -23,7 +23,7 @@ public class ModBiomeModifiers {
         var biomes = context.lookup(Registries.BIOME);
 
         context.register(ADD_OLD_OAK_TREE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(Tags.Biomes.IS_PLAINS),
+                biomes.getOrThrow(Tags.Biomes.IS_FOREST),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.OLD_OAK_KEY_PLACED)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
     }

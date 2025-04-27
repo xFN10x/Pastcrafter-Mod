@@ -14,17 +14,26 @@ import com.fn10.pastcrafter.blocks.PastCrafterBlocks;
 import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends BlockTagsProvider {
-    public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, lookupProvider, PastCrafer.MID, existingFileHelper);
-    }
+        public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider,
+                        @Nullable ExistingFileHelper existingFileHelper) {
+                super(output, lookupProvider, PastCrafer.MID, existingFileHelper);
+        }
 
-    @Override
-    protected void addTags(HolderLookup.Provider pProvider) {
-        this.tag(BlockTags.LOGS_THAT_BURN)
-                .add(PastCrafterBlocks.Old_Oak_Log.get());
-        this.tag(PastCrafterTags.OLD_BLOCK)
-                .add(PastCrafterBlocks.Old_Oak_Log.get())
-                .add(PastCrafterBlocks.Old_Oak_Leaves.get())
-                .add(PastCrafterBlocks.Old_Oak_Sapling.get());
-    }
+        @Override
+        protected void addTags(@SuppressWarnings("null") HolderLookup.Provider pProvider) {
+                this.tag(BlockTags.LOGS_THAT_BURN)
+                                .add(PastCrafterBlocks.Beta_Oak_Log.get());
+
+                this.tag(BlockTags.PLANKS)
+                                .add(PastCrafterBlocks.Beta_Oak_Planks.get());
+
+                this.tag(BlockTags.WOODEN_STAIRS)
+                                .add(PastCrafterBlocks.Beta_Oak_Stairs.get());
+
+                this.tag(PastCrafterTags.OLD_BLOCK)
+                                .add(PastCrafterBlocks.Beta_Oak_Log.get())
+                                .add(PastCrafterBlocks.Beta_Oak_Planks.get())
+                                .add(PastCrafterBlocks.Distant_Memory.get());
+
+        }
 }

@@ -24,7 +24,7 @@ public class CreativeModTabMaker {
     // Set name of tab to display
     .title(Component.translatable("item_group.pastcrafter.pastcrafter"))
     //Set icon of creative tab
-    .icon(() -> new ItemStack(PastCrafterBlocks.Old_Oak_Sapling.get().asItem()))
+    .icon(() -> new ItemStack(PastCrafterBlocks.Past_Extracter.get()))
 
     .displayItems((parameters, output) -> {
         PastCrafterBlocks.BLOCKS.getEntries().forEach( (blockRegistryObject) -> {
