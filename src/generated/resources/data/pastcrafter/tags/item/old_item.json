@@ -2,6 +2,14 @@
   "values": [
     "pastcrafter:beta_oak_log",
     "pastcrafter:beta_oak_planks",
-    "pastcrafter:distant_memory"
+    "pastcrafter:distant_memory",
+    "pastcrafter:beta_cobblestone",
+    "pastcrafter:beta_dirt",
+    "pastcrafter:beta_grass",
+    "pastcrafter:beta_oak_leaves",
+    "pastcrafter:beta_oak_stairs",
+    "pastcrafter:beta_oak_sapling",
+    "pastcrafter:beta_grass",
+    "pastcrafter:old_wooden_sword"
   ]
 }

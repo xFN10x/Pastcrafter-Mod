@@ -37,12 +37,12 @@ public class PastExtracterBlock extends Block implements EntityBlock {
     }
 
     @Override
-    public int getLightBlock(BlockState state, BlockGetter world, BlockPos pos) {
+    public int getLightBlock(@SuppressWarnings("null") BlockState state, @SuppressWarnings("null") BlockGetter world, @SuppressWarnings("null") BlockPos pos) {
         return 0;
     }
 
-    protected ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel,
-            BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHitResult) {
+    protected ItemInteractionResult useItemOn(@SuppressWarnings("null") ItemStack pStack, @SuppressWarnings("null") BlockState pState, @SuppressWarnings("null") Level pLevel,
+            @SuppressWarnings("null") BlockPos pPos, @SuppressWarnings("null") Player pPlayer, @SuppressWarnings("null") InteractionHand pHand, @SuppressWarnings("null") BlockHitResult pHitResult) {
         if (pLevel.getBlockEntity(pPos) instanceof PastExtracterTile be) {
             if (!pLevel.isClientSide()) {
                 ((ServerPlayer) pPlayer).openMenu(new SimpleMenuProvider(be, Component.literal("Past Extracter")),
@@ -58,14 +58,14 @@ public class PastExtracterBlock extends Block implements EntityBlock {
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+    public BlockEntity newBlockEntity(@SuppressWarnings("null") BlockPos pos, @SuppressWarnings("null") BlockState state) {
         return TileEntityInit.Past_Extracter_Entity.get().create(pos, state);
     }
 
     @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state,
-            BlockEntityType<T> type) {
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@SuppressWarnings("null") Level world, @SuppressWarnings("null") BlockState state,
+            @SuppressWarnings("null") BlockEntityType<T> type) {
         return type == TileEntityInit.Past_Extracter_Entity.get()
                 ? (level, pos, blockState, tile) -> {
                     if (tile instanceof PastExtracterTile pastExtracterTile) {

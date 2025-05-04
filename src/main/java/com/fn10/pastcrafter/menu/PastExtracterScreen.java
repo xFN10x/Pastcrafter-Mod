@@ -37,7 +37,7 @@ public class PastExtracterScreen extends AbstractContainerScreen<PastExtracterMe
         //System.out.println("Timer value: " + k);
         int l = Mth.floor(Mth.clamp((51f * k / 600f), 0f,51f));
         if (l > 0) {
-            pGuiGraphics.blitSprite(PROGRESS_BAR, 28, 51, 0, 0, x + 75, y + 18, 28, l);
+            pGuiGraphics.blitSprite(PROGRESS_BAR, 28, 51, 0, 0, x + 76, y + 18, 28, l);
         }
     }
 

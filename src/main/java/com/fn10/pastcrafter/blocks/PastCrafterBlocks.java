@@ -1,6 +1,8 @@
 package com.fn10.pastcrafter.blocks;
 
 import com.fn10.pastcrafter.PastCrafer;
+import com.fn10.pastcrafter.blocks.be.tiles.BindingTableBlock;
+import com.fn10.pastcrafter.blocks.be.tiles.BindingTableTile;
 import com.fn10.pastcrafter.blocks.be.tiles.PastExtracterBlock;
 import com.fn10.pastcrafter.blocks.be.tiles.PastExtracterTile;
 import com.fn10.pastcrafter.worldgen.tree.OldOakGrower;
@@ -48,6 +50,13 @@ public class PastCrafterBlocks {
                                                                 .of(PastExtracterTile::new,
                                                                                 PastCrafterBlocks.Past_Extracter.get())
                                                                 .build(null));
+                public static final RegistryObject<BlockEntityType<BindingTableTile>> Binding_Table_Entity = TILE_ENTITY_TYPES
+
+                                .register("binding_table",
+                                                () -> BlockEntityType.Builder
+                                                                .of(BindingTableTile::new,
+                                                                                PastCrafterBlocks.Binding_Table.get())
+                                                                .build(null));
         }
 
         public static void register(IEventBus eventBus) {
@@ -75,6 +84,12 @@ public class PastCrafterBlocks {
         public static final RegistryObject<Block> Beta_Oak_Planks = BLOCKS.register("beta_oak_planks",
                         () -> new PastBlock(1, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
                                         .mapColor(MapColor.WOOD)));
+        public static final RegistryObject<Block> Beta_Grass = BLOCKS.register("beta_grass",
+                        () -> new PastBlock(2, BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));
+        public static final RegistryObject<Block> Beta_Dirt = makePastBlock("beta_dirt",
+                        BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT), 0);
+        public static final RegistryObject<Block> Beta_Cobblestone = makePastBlock("beta_cobblestone",
+                        BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE), 0);
 
         public static final RegistryObject<PastStairs> Beta_Oak_Stairs = BLOCKS.register("beta_oak_stairs",
                         () -> new PastStairs(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_STAIRS)
@@ -86,14 +101,25 @@ public class PastCrafterBlocks {
                                         return 1;
                                 }
                         });
+        public static final RegistryObject<Block> Binding_Table = BLOCKS.register("binding_table",
+                        () -> new BindingTableBlock(BlockBehaviour.Properties.of()
+                                        .destroyTime(6).ignitedByLava().mapColor(MapColor.COLOR_GRAY)));
 
         public static final RegistryObject<Block> Past_Extracter = BLOCKS.register("past_extracter",
                         () -> new PastExtracterBlock(
                                         BlockBehaviour.Properties.of().destroyTime(2).sound(SoundType.STONE)
                                                         .noOcclusion().mapColor(MapColor.STONE)
                                                         .requiresCorrectToolForDrops()));
-        public static final RegistryObject<Block> Distant_Memory=BLOCKS.register("distant_memory",()->new PastBlock(10,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).destroyTime(3).noTerrainParticles().noOcclusion().sound(SoundType.GLASS)){@Override public int getLightBlock(@SuppressWarnings("null")BlockState state,@SuppressWarnings("null")BlockGetter world,@SuppressWarnings("null")BlockPos pos){return 0;}
+        public static final RegistryObject<Block> Distant_Memory = BLOCKS.register("distant_memory",
+                        () -> new PastBlock(10, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE)
+                                        .destroyTime(3).noTerrainParticles().noOcclusion().sound(SoundType.GLASS)) {
+                                @Override
+                                public int getLightBlock(@SuppressWarnings("null") BlockState state,
+                                                @SuppressWarnings("null") BlockGetter world,
+                                                @SuppressWarnings("null") BlockPos pos) {
+                                        return 0;
+                                }
 
-        });
+                        });
 
 }

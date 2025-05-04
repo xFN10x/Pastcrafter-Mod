@@ -11,11 +11,14 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class PastCrafterMenuTypes {
 
-    public static final DeferredRegister<MenuType<?>> MENUS =
-            DeferredRegister.create(Registries.MENU, PastCrafer.MID);
+    public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, PastCrafer.MID);
 
-    public static final RegistryObject<MenuType<PastExtracterMenu>> PAST_EXTRACTER_MENU = MENUS.register("past_extracter_menu",
+    public static final RegistryObject<MenuType<PastExtracterMenu>> PAST_EXTRACTER_MENU = MENUS.register(
+            "past_extracter_menu",
             () -> IForgeMenuType.create(PastExtracterMenu::new));
+    public static final RegistryObject<MenuType<BindingTableMenu>> BINDING_TABLE_MENU = MENUS.register(
+            "binding_table_menu",
+            () -> IForgeMenuType.create(BindingTableMenu::new));
 
     public static void register(IEventBus eventBus) {
         MENUS.register(eventBus);

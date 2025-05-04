@@ -13,8 +13,8 @@ import com.fn10.pastcrafter.blocks.PastCrafterBlocks;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModBlockTagProvider extends BlockTagsProvider {
-        public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider,
+public class PCBlockTagP extends BlockTagsProvider {
+        public PCBlockTagP(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider,
                         @Nullable ExistingFileHelper existingFileHelper) {
                 super(output, lookupProvider, PastCrafer.MID, existingFileHelper);
         }
@@ -33,7 +33,18 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 this.tag(PastCrafterTags.OLD_BLOCK)
                                 .add(PastCrafterBlocks.Beta_Oak_Log.get())
                                 .add(PastCrafterBlocks.Beta_Oak_Planks.get())
-                                .add(PastCrafterBlocks.Distant_Memory.get());
+                                .add(PastCrafterBlocks.Distant_Memory.get())
+                                .add(PastCrafterBlocks.Beta_Cobblestone.get())
+                                .add(PastCrafterBlocks.Beta_Dirt.get())
+                                .add(PastCrafterBlocks.Beta_Grass.get())
+                                .add(PastCrafterBlocks.Beta_Oak_Leaves.get())
+                                .add(PastCrafterBlocks.Beta_Oak_Stairs.get())
+                                .add(PastCrafterBlocks.Beta_Oak_Sapling.get())
+                                .add(PastCrafterBlocks.Beta_Grass.get());
+                this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                                .add(PastCrafterBlocks.Binding_Table.get());
+                this.tag(BlockTags.MINEABLE_WITH_AXE)
+                                .add(PastCrafterBlocks.Binding_Table.get());
 
         }
 }

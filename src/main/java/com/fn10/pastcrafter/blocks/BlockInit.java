@@ -2,7 +2,7 @@ package com.fn10.pastcrafter.blocks;
 
 import java.util.function.Supplier;
 
-import com.fn10.pastcrafter.componate.PastCrafterComponets;
+import com.fn10.pastcrafter.component.PastCrafterComponents;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -23,15 +23,15 @@ public class BlockInit {
 
                     Item.Properties properties = new Item.Properties();
                     if (block instanceof PastBlock) {
-                        properties.component(PastCrafterComponets.PAST_EXP.get(),
+                        properties.component(PastCrafterComponents.PAST_EXP.get(),
                                 Float.valueOf(block.defaultBlockState()
                                         .getValue(PastBlock.PAST_EXP)));
                     } else if (block instanceof PastStairs) {
-                        properties.component(PastCrafterComponets.PAST_EXP.get(),
+                        properties.component(PastCrafterComponents.PAST_EXP.get(),
                                 Float.valueOf(block.defaultBlockState()
                                         .getValue(PastStairs.PAST_EXP)));
                     } else if (block instanceof PastLeavesBlock) {
-                        properties.component(PastCrafterComponets.PAST_EXP.get(),
+                        properties.component(PastCrafterComponents.PAST_EXP.get(),
                                 Float.valueOf(block.defaultBlockState()
                                         .getValue(PastLeavesBlock.PAST_EXP)));
                     } else {

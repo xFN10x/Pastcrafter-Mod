@@ -1,4 +1,4 @@
-package com.fn10.pastcrafter.componate;
+package com.fn10.pastcrafter.component;
 
 import java.util.function.UnaryOperator;
 
@@ -11,7 +11,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
-public class PastCrafterComponets {
+public class PastCrafterComponents {
      public static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES =
             DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, PastCrafer.MID);
 

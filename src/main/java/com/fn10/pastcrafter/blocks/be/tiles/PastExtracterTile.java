@@ -7,7 +7,8 @@ import org.jetbrains.annotations.NotNull;
 import com.fn10.pastcrafter.PastCrafer;
 import com.fn10.pastcrafter.PastCrafterTags;
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks.TileEntityInit;
-import com.fn10.pastcrafter.componate.PastCrafterComponets;
+import com.fn10.pastcrafter.component.PastCrafterComponents;
+import com.fn10.pastcrafter.datagen.PCSoundDefinitionsP;
 import com.fn10.pastcrafter.items.PastCrafterItems;
 import com.fn10.pastcrafter.menu.PastExtracterMenu;
 import net.minecraft.core.BlockPos;
@@ -36,13 +37,12 @@ import net.minecraftforge.items.ItemStackHandler;
 public class PastExtracterTile extends BlockEntity implements MenuProvider {
 
     public int Timer = 0; 
-    public final SoundEvent Block_Start = PastCrafer.PAST_EXTRACTER_START_SOUND;
-    public final SoundEvent Block_Tick = PastCrafer.PAST_EXTRACTER_TICK_SOUND;
-    public final SoundEvent Block_End = PastCrafer.PAST_EXTRACTER_STOP_SOUND;
+    public final SoundEvent Block_Start = PCSoundDefinitionsP.PAST_EXTRACTER_START_SOUND;//PastCrafer.PAST_EXTRACTER_START_SOUND; i love depracating my own things
+    public final SoundEvent Block_Tick = PCSoundDefinitionsP.PAST_EXTRACTER_TICK_SOUND;//PastCrafer.PAST_EXTRACTER_TICK_SOUND;
+    public final SoundEvent Block_End = PCSoundDefinitionsP.PAST_EXTRACTER_STOP_SOUND;//PastCrafer.PAST_EXTRACTER_STOP_SOUND;
     public boolean Started = false;
     public boolean CanPlayEndSound = false;
     public boolean CanStart = true;
-    //public 
 
     public final ItemStackHandler inventory = new ItemStackHandler(2) {
         @Override
@@ -85,8 +85,8 @@ public class PastExtracterTile extends BlockEntity implements MenuProvider {
                     level.playSound(null, pos, tile.Block_End, SoundSource.BLOCKS);
                     tile.inventory.extractItem(0, 1, false);
 
-                    Float outexp = out.get(PastCrafterComponets.PAST_EXP.get());
-                    Float ingreexp = ingre.get(PastCrafterComponets.PAST_EXP.get());
+                    Float outexp = out.get(PastCrafterComponents.PAST_EXP.get());
+                    Float ingreexp = ingre.get(PastCrafterComponents.PAST_EXP.get());
 
                     if (ingreexp == null) {
                         tile.Timer = 0;
@@ -98,9 +98,9 @@ public class PastExtracterTile extends BlockEntity implements MenuProvider {
                     
                     if (out.is(Items.BOOK)) {
                         tile.inventory.setStackInSlot(1, new ItemStack(PastCrafterItems.HISTORY_BOOK.get()));
-                        out.set(PastCrafterComponets.PAST_EXP.get(), ingreexp);
+                        out.set(PastCrafterComponents.PAST_EXP.get(), ingreexp);
                     } else if (out.is(PastCrafterItems.HISTORY_BOOK.get())) {
-                        out.set(PastCrafterComponets.PAST_EXP.get(), outexp + ingreexp);
+                        out.set(PastCrafterComponents.PAST_EXP.get(), outexp + ingreexp);
                     }
                     
                     tile.Timer = 0;

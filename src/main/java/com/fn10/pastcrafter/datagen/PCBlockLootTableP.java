@@ -26,8 +26,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
 
-public class ModBlockLootTableProvider extends BlockLootSubProvider {
-    protected ModBlockLootTableProvider(HolderLookup.Provider pRegistries) {
+public class PCBlockLootTableP extends BlockLootSubProvider {
+    protected PCBlockLootTableP(HolderLookup.Provider pRegistries) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), pRegistries);
     }
 
@@ -37,10 +37,15 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(PastCrafterBlocks.Beta_Oak_Log.get());
         dropSelf(PastCrafterBlocks.Beta_Oak_Planks.get());
         dropSelf(PastCrafterBlocks.Beta_Oak_Sapling.get());
+        dropSelf(PastCrafterBlocks.Beta_Dirt.get());
+        dropSelf(PastCrafterBlocks.Beta_Cobblestone.get());
+        dropSelf(PastCrafterBlocks.Binding_Table.get());
         dropOther(PastCrafterBlocks.Beta_Oak_Stairs.get(), PastCrafterBlocks.Beta_Oak_Planks.get().asItem());
 
-        this.add(PastCrafterBlocks.Beta_Oak_Leaves.get(), block -> createLeavesDrops(PastCrafterBlocks.Beta_Oak_Leaves.get(),
-                PastCrafterBlocks.Beta_Oak_Sapling.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        this.add(PastCrafterBlocks.Beta_Grass.get(), createSilkTouchOnlyTable(PastCrafterBlocks.Beta_Dirt.get()));
+        this.add(PastCrafterBlocks.Beta_Oak_Leaves.get(),
+                block -> createLeavesDrops(PastCrafterBlocks.Beta_Oak_Leaves.get(),
+                        PastCrafterBlocks.Beta_Oak_Sapling.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
         onlyDropWithOldItem(PastCrafterBlocks.Distant_Memory.get(), net.minecraft.world.level.block.Blocks.AIR);
     }

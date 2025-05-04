@@ -2,10 +2,12 @@ package com.fn10.pastcrafter.items;
 
 import java.util.List;
 import com.fn10.pastcrafter.PastCrafer;
-import com.fn10.pastcrafter.componate.PastCrafterComponets;
+import com.fn10.pastcrafter.component.PastCrafterComponents;
 import com.fn10.pastcrafter.items.customs.EyeOfThePast;
+import com.fn10.pastcrafter.items.customs.HammerTool;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -28,6 +30,9 @@ public class PastCrafterItems {
     public static final RegistryObject<Item> Old_Wooden_Sword = ITEMS.register("old_wooden_sword",
             () -> new SwordItem(Tiers.WOOD,
                     new Item.Properties().attributes(SwordItem.createAttributes(Tiers.WOOD, 3, -2.4F))));
+    public static final RegistryObject<Item> Binding_Hammer = ITEMS.register("binding_hammer",
+            () -> new HammerTool(Tiers.IRON,BlockTags.BASE_STONE_OVERWORLD,
+                    new Item.Properties().attributes(HammerTool.createAttributes(Tiers.IRON, 13, -3.6f))));
 
     public static final RegistryObject<Item> HISTORY_BOOK = ITEMS.register("history_book",
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC).stacksTo(1)) {
@@ -37,14 +42,16 @@ public class PastCrafterItems {
                 }
 
                 @Override
-                public void appendHoverText(@SuppressWarnings("null") ItemStack pStack, @SuppressWarnings("null") TooltipContext pContext,
-                        @SuppressWarnings("null") List<Component> pTooltipComponents, @SuppressWarnings("null") TooltipFlag pTooltipFlag) {
-                    Float exp = pStack.get(PastCrafterComponets.PAST_EXP.get());
+                public void appendHoverText(@SuppressWarnings("null") ItemStack pStack,
+                        @SuppressWarnings("null") TooltipContext pContext,
+                        @SuppressWarnings("null") List<Component> pTooltipComponents,
+                        @SuppressWarnings("null") TooltipFlag pTooltipFlag) {
+                    Float exp = pStack.get(PastCrafterComponents.PAST_EXP.get());
 
                     if (exp != null) {
                         pTooltipComponents.add(Component.literal("Past EXP: " + Mth.floor(exp)));
                     } else {
-                        pTooltipComponents.add(Component.literal("Past EXP: ???"));
+                        pTooltipComponents.add(Component.literal("Past EXP: 0"));
                     }
 
                     super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);

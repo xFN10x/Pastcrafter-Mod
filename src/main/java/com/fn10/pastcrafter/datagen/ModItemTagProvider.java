@@ -31,7 +31,16 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 tag(PastCrafterTags.OLD_ITEM)
                                 .add(PastCrafterBlocks.Beta_Oak_Log.get().asItem())
                                 .add(PastCrafterBlocks.Beta_Oak_Planks.get().asItem())
-                                .add(PastCrafterBlocks.Distant_Memory.get().asItem());
+                                .add(PastCrafterBlocks.Distant_Memory.get().asItem())
+                                .add(PastCrafterBlocks.Beta_Cobblestone.get().asItem())
+                                .add(PastCrafterBlocks.Beta_Dirt.get().asItem())
+                                .add(PastCrafterBlocks.Beta_Grass.get().asItem())
+                                .add(PastCrafterBlocks.Beta_Oak_Leaves.get().asItem())
+                                .add(PastCrafterBlocks.Beta_Oak_Stairs.get().asItem())
+                                .add(PastCrafterBlocks.Beta_Oak_Sapling.get().asItem())
+                                .add(PastCrafterBlocks.Beta_Grass.get().asItem())
+
+                                .add(PastCrafterItems.Old_Wooden_Sword.get());
                 tag(PastCrafterTags.BINDABLE)
                                 .add(Items.BOOK)
                                 .add(PastCrafterItems.HISTORY_BOOK.get());

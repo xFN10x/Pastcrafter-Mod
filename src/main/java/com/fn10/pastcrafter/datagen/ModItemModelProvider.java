@@ -24,6 +24,9 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         basicItem(PastCrafterItems.EYE_OF_THE_PAST.get());
         basicItem(PastCrafterItems.HISTORY_BOOK.get());
+        
+        handheldItem(PastCrafterItems.Binding_Hammer);
+
         saplingItem(PastCrafterBlocks.Beta_Oak_Sapling);
     }
 
@@ -33,7 +36,6 @@ public class ModItemModelProvider extends ItemModelProvider {
                         ResourceLocation.fromNamespaceAndPath(PastCrafer.MID, "block/" + item.getId().getPath()));
     }
 
-    @SuppressWarnings("unused")
     private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 ResourceLocation.parse("item/handheld")).texture("layer0",

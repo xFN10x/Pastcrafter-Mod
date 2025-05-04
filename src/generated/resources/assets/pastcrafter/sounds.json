@@ -1,0 +1,23 @@
+{
+  "past_extracter_process_finished": {
+    "sounds": [
+      "pastcrafter:past_extracter_done"
+    ],
+    "subtitle": "pastcrafter.subtitle.past_extracter_process_end"
+  },
+  "past_extracter_process_start": {
+    "sounds": [
+      "pastcrafter:past_extracter_start"
+    ],
+    "subtitle": "pastcrafter.subtitle.past_extracter_process_start"
+  },
+  "past_extracter_process_tick": {
+    "sounds": [
+      {
+        "name": "pastcrafter:past_extracter_tick",
+        "volume": 0.5
+      }
+    ],
+    "subtitle": "pastcrafter.subtitle.past_extracter_process_tick"
+  }
+}

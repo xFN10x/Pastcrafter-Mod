@@ -14,20 +14,27 @@ import com.fn10.pastcrafter.PastCrafer;
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks;
 import com.fn10.pastcrafter.blocks.PastStairs;
 
-public class ModBlockStateProvider extends BlockStateProvider {
-    public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
+public class PCBlockStateP extends BlockStateProvider {
+    public PCBlockStateP(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, PastCrafer.MID, exFileHelper);
     }
 
     @Override
     protected void registerStatesAndModels() {
-        // thanks Kaupenjoe for the datagen stuff, (the base scripts, which i modified) some blocks were already made
+        // thanks Kaupenjoe for the datagen stuff, (the base scripts, which i modified)
+        // some blocks were already made
         // manually, dont add them!
 
         logblockmaker(PastCrafterBlocks.Beta_Oak_Log, "block/beta_oak_log", "block/beta_log_top");
         blockWithItem(PastCrafterBlocks.Beta_Oak_Planks);
+        blockWithItem(PastCrafterBlocks.Beta_Cobblestone);
         saplingBlock(PastCrafterBlocks.Beta_Oak_Sapling);
         leavesBlock(PastCrafterBlocks.Beta_Oak_Leaves);
+        blockWithItem(PastCrafterBlocks.Beta_Dirt);
+        blockWithItemCustom(PastCrafterBlocks.Beta_Grass, new ModelFile.UncheckedModelFile(
+                "pastcrafter:block/beta_grass_model"));
+        blockWithItemCustom(PastCrafterBlocks.Binding_Table, new ModelFile.UncheckedModelFile(
+                "pastcrafter:block/binding_table_model"));
 
         yaxisBlock(PastCrafterBlocks.Beta_Oak_Stairs.get(), new ModelFile.UncheckedModelFile(
                 "pastcrafter:block/beta_stairs"));

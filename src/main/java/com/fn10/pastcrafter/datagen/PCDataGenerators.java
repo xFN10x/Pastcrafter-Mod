@@ -18,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 import com.fn10.pastcrafter.PastCrafer;
 
 @Mod.EventBusSubscriber(modid = PastCrafer.MID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class DataGenerators {
+public class PCDataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
@@ -27,17 +27,20 @@ public class DataGenerators {
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
         generator.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
-                List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
-       //generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput, lookupProvider));
+                List.of(new LootTableProvider.SubProviderEntry(PCBlockLootTableP::new, LootContextParamSets.BLOCK)),
+                lookupProvider));
+        // generator.addProvider(event.includeServer(), new
+        // ModRecipeProvider(packOutput, lookupProvider));
 
-        BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
+        BlockTagsProvider blockTagsProvider = new PCBlockTagP(packOutput, lookupProvider, existingFileHelper);
         generator.addProvider(event.includeServer(), blockTagsProvider);
-        generator.addProvider(event.includeServer(), new ModItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
-
-        generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
-        generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
-
+        generator.addProvider(event.includeServer(), new ModItemTagProvider(packOutput, lookupProvider,
+                blockTagsProvider.contentsGetter(), existingFileHelper));
         //generator.addProvider(event.includeServer(), new ModDatapackEntries(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
+
+        generator.addProvider(event.includeClient(), new PCBlockStateP(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new PCSoundDefinitionsP(packOutput, existingFileHelper));
     }
 }

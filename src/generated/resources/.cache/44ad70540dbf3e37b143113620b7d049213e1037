@@ -1,5 +1,7 @@
-// 1.21.1	2025-04-26T19:48:50.8292258	Tags for minecraft:block mod id pastcrafter
+// 1.21.1	2025-04-29T17:42:22.9286408	Tags for minecraft:block mod id pastcrafter
 398b869664a2b70d10db19d4a5b28daed3b881e0 data/minecraft/tags/block/logs_that_burn.json
+e731642337d6c3026fb9b66b001da81c95228a2c data/minecraft/tags/block/mineable/axe.json
+e731642337d6c3026fb9b66b001da81c95228a2c data/minecraft/tags/block/mineable/pickaxe.json
 d203303546f53e67162459be3ed6d84ee5e92e1d data/minecraft/tags/block/planks.json
 184c88cce03e90c3f67013303844577246c552d6 data/minecraft/tags/block/wooden_stairs.json
-da820557a99deb9146a78c6698538ad85de9632c data/pastcrafter/tags/block/old_block.json
+ab6510eefe8d3a55ca21dbc76d1d51590d239c5c data/pastcrafter/tags/block/old_block.json

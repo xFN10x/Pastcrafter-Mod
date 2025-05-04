@@ -2,8 +2,9 @@ package com.fn10.pastcrafter;
 
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks;
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks.TileEntityInit;
-import com.fn10.pastcrafter.componate.PastCrafterComponets;
+import com.fn10.pastcrafter.component.PastCrafterComponents;
 import com.fn10.pastcrafter.items.PastCrafterItems;
+import com.fn10.pastcrafter.menu.BindingTableScreen;
 import com.fn10.pastcrafter.menu.PastCrafterMenuTypes;
 import com.fn10.pastcrafter.menu.PastExtracterScreen;
 
@@ -14,6 +15,7 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.FoliageColor;
+import net.minecraft.world.level.GrassColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -31,10 +33,13 @@ public class PastCrafer {
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS,
             MID);
 
+    @Deprecated
     public static final SoundEvent PAST_EXTRACTER_START_SOUND = SoundEvent.createVariableRangeEvent(
             ResourceLocation.fromNamespaceAndPath(PastCrafer.MID, "past_extracter_process_start"));
+    @Deprecated
     public static final SoundEvent PAST_EXTRACTER_TICK_SOUND = SoundEvent.createVariableRangeEvent(
             ResourceLocation.fromNamespaceAndPath(PastCrafer.MID, "past_extracter_process_tick"));
+    @Deprecated
     public static final SoundEvent PAST_EXTRACTER_STOP_SOUND = SoundEvent.createVariableRangeEvent(
             ResourceLocation.fromNamespaceAndPath(PastCrafer.MID, "past_extracter_process_finished"));
 
@@ -65,7 +70,7 @@ public class PastCrafer {
 
         PastCrafterItems.register(modEventBus);
 
-        PastCrafterComponets.register(modEventBus);
+        PastCrafterComponents.register(modEventBus);
 
         modEventBus.register(ClientModEvents.class);
 
@@ -78,7 +83,7 @@ public class PastCrafer {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             MenuScreens.register(PastCrafterMenuTypes.PAST_EXTRACTER_MENU.get(), PastExtracterScreen::new);
-            // Register block color handler for Beta_Oak_Leaves
+            MenuScreens.register(PastCrafterMenuTypes.BINDING_TABLE_MENU.get(), BindingTableScreen::new);
             BlockColors blockColors = Minecraft.getInstance().getBlockColors();
             blockColors.register((state, level, pos, tintIndex) -> {
                 if (level != null && pos != null) {
@@ -88,6 +93,12 @@ public class PastCrafer {
                 // Default foliage color
                 return FoliageColor.getDefaultColor();
             }, PastCrafterBlocks.Beta_Oak_Leaves.get());
+            blockColors.register(
+            (p_276237_, p_276238_, p_276239_, p_276240_) -> p_276238_ != null && p_276239_ != null
+                    ? BiomeColors.getAverageGrassColor(p_276238_, p_276239_)
+                    : GrassColor.getDefaultColor(),
+            PastCrafterBlocks.Beta_Grass.get()
+        );
         }
 
     }

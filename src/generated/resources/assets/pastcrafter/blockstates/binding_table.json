@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "pastcrafter:block/binding_table_model"
+    }
+  }
+}
