@@ -34,13 +34,13 @@ public class PCDataGenerators {
 
         BlockTagsProvider blockTagsProvider = new PCBlockTagP(packOutput, lookupProvider, existingFileHelper);
         generator.addProvider(event.includeServer(), blockTagsProvider);
-        generator.addProvider(event.includeServer(), new ModItemTagProvider(packOutput, lookupProvider,
+        generator.addProvider(event.includeServer(), new PCItemTagP(packOutput, lookupProvider,
                 blockTagsProvider.contentsGetter(), existingFileHelper));
         //generator.addProvider(event.includeServer(), new ModDatapackEntries(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new PCWorldGenP(packOutput, lookupProvider));
 
         generator.addProvider(event.includeClient(), new PCBlockStateP(packOutput, existingFileHelper));
-        generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new PCItemModelP(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new PCSoundDefinitionsP(packOutput, existingFileHelper));
     }
 }

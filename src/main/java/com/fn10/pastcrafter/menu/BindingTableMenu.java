@@ -7,9 +7,12 @@ import com.fn10.pastcrafter.PastCrafterTags;
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks;
 import com.fn10.pastcrafter.classes.BindingTableRecipe;
 import com.fn10.pastcrafter.component.PastCrafterComponents;
+import com.fn10.pastcrafter.datagen.PCSoundDefinitionsP;
 import com.fn10.pastcrafter.items.PastCrafterItems;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
@@ -27,9 +30,9 @@ import net.minecraft.world.level.block.state.BlockState;
 public class BindingTableMenu extends ItemCombinerMenu {
 
     public List<BindingTableRecipe> recipes = new ArrayList<>();
-    @SuppressWarnings("unused")
     private final Level level;
-    private final DataSlot targetRecipe = DataSlot.standalone();
+    protected final DataSlot targetRecipe = DataSlot.standalone();
+    private BlockPos blockpos;
     private ContainerLevelAccess ACCESS;
 
     public BindingTableMenu(int pContainerId, Inventory inv, ContainerLevelAccess access) {
@@ -47,6 +50,7 @@ public class BindingTableMenu extends ItemCombinerMenu {
 
     public BindingTableMenu(int id, Inventory inventory, FriendlyByteBuf buf) {
         this(id, inventory, ContainerLevelAccess.NULL);
+        blockpos = buf != null ? buf.readBlockPos() : blockpos;
     }
 
     private void addRecipe(Item thisitem, Item turnsintothis, Float pastexp) {
@@ -61,13 +65,16 @@ public class BindingTableMenu extends ItemCombinerMenu {
         return inputexp >= recipes.get(targetRecipe.get()).pastExp;
     }
 
+
     @SuppressWarnings("null")
     @Override
     protected void onTake(Player p_150601_, ItemStack p_150602_) {
         this.inputSlots.getItem(0).shrink(1);
         this.inputSlots.getItem(1).set(PastCrafterComponents.PAST_EXP.get(),
                 this.inputSlots.getItem(1).get(PastCrafterComponents.PAST_EXP.get())
-                        - recipes.get(targetRecipe.get()).pastExp);
+                        - (recipes.get(targetRecipe.get()).pastExp * 0.5f));
+        level.playSound(player, blockpos != null ? blockpos : player.blockPosition(),
+                PCSoundDefinitionsP.BINDING_TABLE_BIND_SOUND, SoundSource.BLOCKS);
         this.createResult();
     }
 
@@ -85,7 +92,8 @@ public class BindingTableMenu extends ItemCombinerMenu {
     public void createResult() {
         if (this.nullOrAir(this.inputSlots.getItem(0)) || this.nullOrAir(this.inputSlots.getItem(1)) ||
                 this.nullOrAir(this.inputSlots.getItem(2))) {
-            //System.out.println("no items");
+            // System.out.println("no items");
+            this.resultSlots.setItem(0, new ItemStack(Items.AIR));
             return;
         }
         List<BindingTableRecipe> recipesforitem = new ArrayList<>();
@@ -99,7 +107,7 @@ public class BindingTableMenu extends ItemCombinerMenu {
             float targetExp = 0f;
             BindingTableRecipe closestRecipe = null;
             float closestDifference = Float.MAX_VALUE;
- 
+
             targetExp = this.inputSlots.getItem(1).get(PastCrafterComponents.PAST_EXP.get());
 
             for (BindingTableRecipe recipe : recipesforitem) {
@@ -114,8 +122,11 @@ public class BindingTableMenu extends ItemCombinerMenu {
 
                 targetRecipe.set(recipes.indexOf(closestRecipe));
                 this.resultSlots.setItem(0, new ItemStack(closestRecipe.output));
+            } else {
+                this.resultSlots.setItem(0, new ItemStack(Items.AIR));
             }
         } else if (recipesforitem.isEmpty()) {
+            this.resultSlots.setItem(0, new ItemStack(Items.AIR));
             System.out.println("no recipes for item " + this.inputSlots.getItem(0).getHoverName());
         }
     }
@@ -156,40 +167,6 @@ public class BindingTableMenu extends ItemCombinerMenu {
     // THIS YOU HAVE TO DEFINE!
     private static final int TE_INVENTORY_SLOT_COUNT = 2; // must be the number of slots you have!
 
-    @Override
-    public ItemStack quickMoveStack(@SuppressWarnings("null") Player playerIn, int pIndex) {
-        Slot sourceSlot = slots.get(pIndex);
-        if (sourceSlot == null || !sourceSlot.hasItem())
-            return ItemStack.EMPTY; // EMPTY_ITEM
-        ItemStack sourceStack = sourceSlot.getItem();
-        ItemStack copyOfSourceStack = sourceStack.copy();
-
-        // Check if the slot clicked is one of the vanilla container slots
-        if (pIndex < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
-            // This is a vanilla container slot so merge the stack into the tile inventory
-            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX
-                    + TE_INVENTORY_SLOT_COUNT, false)) {
-                return ItemStack.EMPTY; // EMPTY_ITEM
-            }
-        } else if (pIndex < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
-            // This is a TE slot so merge the stack into the players inventory
-            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT,
-                    false)) {
-                return ItemStack.EMPTY;
-            }
-        } else {
-            System.out.println("Invalid slotIndex:" + pIndex);
-            return ItemStack.EMPTY;
-        }
-        // If stack size == 0 (the entire stack was moved) set slot contents to null
-        if (sourceStack.getCount() == 0) {
-            sourceSlot.set(ItemStack.EMPTY);
-        } else {
-            sourceSlot.setChanged();
-        }
-        sourceSlot.onTake(playerIn, sourceStack);
-        return copyOfSourceStack;
-    }
 
     @Override
     public boolean stillValid(@SuppressWarnings("null") Player pPlayer) {

@@ -14,9 +14,9 @@ import com.fn10.pastcrafter.PastCrafer;
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks;
 import com.fn10.pastcrafter.items.PastCrafterItems;
 
-public class ModItemModelProvider extends ItemModelProvider {
+public class PCItemModelP extends ItemModelProvider {
 
-    public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
+    public PCItemModelP(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, PastCrafer.MID, existingFileHelper);
     }
 

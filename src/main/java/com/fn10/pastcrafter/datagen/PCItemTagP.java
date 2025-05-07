@@ -16,8 +16,8 @@ import com.fn10.pastcrafter.items.PastCrafterItems;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModItemTagProvider extends ItemTagsProvider {
-        public ModItemTagProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> completableFuture,
+public class PCItemTagP extends ItemTagsProvider {
+        public PCItemTagP(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> completableFuture,
                         CompletableFuture<TagLookup<Block>> lookupCompletableFuture,
                         @Nullable ExistingFileHelper existingFileHelper) {
                 super(packOutput, completableFuture, lookupCompletableFuture, PastCrafer.MID, existingFileHelper);

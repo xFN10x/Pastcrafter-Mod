@@ -11,12 +11,12 @@ import java.util.concurrent.CompletableFuture;
 import com.fn10.pastcrafter.PastCrafer;
 import com.fn10.pastcrafter.worldgen.ModConfiguredFeatures;
 
-public class ModDatapackEntries extends DatapackBuiltinEntriesProvider {
+public class PCDatapackEntries extends DatapackBuiltinEntriesProvider {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
 
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 
-    public ModDatapackEntries(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+    public PCDatapackEntries(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(PastCrafer.MID));
     }
 }

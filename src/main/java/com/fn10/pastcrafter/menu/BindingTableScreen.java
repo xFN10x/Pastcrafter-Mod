@@ -1,6 +1,9 @@
 package com.fn10.pastcrafter.menu;
 
+import javax.annotation.Nonnull;
+
 import com.fn10.pastcrafter.PastCrafer;
+import com.fn10.pastcrafter.component.PastCrafterComponents;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.gui.GuiGraphics;
@@ -43,12 +46,13 @@ public class BindingTableScreen extends ItemCombinerScreen<BindingTableMenu> {
         renderTooltip(guiGraphics, mouseX, mouseY);
     }
 
-    @SuppressWarnings("null")
     @Override
-    protected void renderErrorIcon(GuiGraphics p_282905_, int p_283237_, int p_282237_) {
-        if ((this.menu.getSlot(0).hasItem() || this.menu.getSlot(1).hasItem())
-                && !this.menu.getSlot(this.menu.getResultSlot()).hasItem()) {
-            p_282905_.blitSprite(ERROR_SPRITE, p_283237_ + 99, p_282237_ + 45, 28, 21);
+    protected void renderErrorIcon(@Nonnull GuiGraphics p_282905_, int p_283237_, int p_282237_) {
+        Float inputexp = this.menu.getSlot(0).getItem().get(PastCrafterComponents.PAST_EXP.get());
+        if (inputexp == null)
+            p_282905_.blitSprite(ERROR_SPRITE, p_283237_, p_282237_, 28, 21);
+        else if (inputexp < this.menu.recipes.get(this.menu.targetRecipe.get()).pastExp) {
+            p_282905_.blitSprite(ERROR_SPRITE, p_283237_, p_282237_, 28, 21);
         }
-    }
+    } 
 }

@@ -1,4 +1,10 @@
 {
+  "binding_table_bind": {
+    "sounds": [
+      "pastcrafter:bind1"
+    ],
+    "subtitle": "pastcraft.subtitle.bind"
+  },
   "past_extracter_process_finished": {
     "sounds": [
       "pastcrafter:past_extracter_done"
