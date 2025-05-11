@@ -5,7 +5,9 @@ import java.util.List;
 
 import com.fn10.pastcrafter.PastCrafterTags;
 import com.fn10.pastcrafter.blocks.PastCrafterBlocks;
+import com.fn10.pastcrafter.classes.BindingTableErrorHolder;
 import com.fn10.pastcrafter.classes.BindingTableRecipe;
+import com.fn10.pastcrafter.classes.enums.BindingTableError;
 import com.fn10.pastcrafter.component.PastCrafterComponents;
 import com.fn10.pastcrafter.datagen.PCSoundDefinitionsP;
 import com.fn10.pastcrafter.items.PastCrafterItems;
@@ -30,6 +32,9 @@ import net.minecraft.world.level.block.state.BlockState;
 public class BindingTableMenu extends ItemCombinerMenu {
 
     public List<BindingTableRecipe> recipes = new ArrayList<>();
+    private BindingTableErrorHolder currentError = new BindingTableErrorHolder();
+    public Boolean error = false;
+    public String currentErrorString = currentError.getFullErrorString(null,null,null);
     private final Level level;
     protected final DataSlot targetRecipe = DataSlot.standalone();
     private BlockPos blockpos;
@@ -94,6 +99,7 @@ public class BindingTableMenu extends ItemCombinerMenu {
                 this.nullOrAir(this.inputSlots.getItem(2))) {
             // System.out.println("no items");
             this.resultSlots.setItem(0, new ItemStack(Items.AIR));
+            error = false;
             return;
         }
         List<BindingTableRecipe> recipesforitem = new ArrayList<>();
@@ -118,16 +124,19 @@ public class BindingTableMenu extends ItemCombinerMenu {
                 }
             }
 
-            if (closestRecipe != null) {
+            if (closestRecipe != null && targetExp >= recipes.get(targetRecipe.get()).pastExp) {
 
                 targetRecipe.set(recipes.indexOf(closestRecipe));
                 this.resultSlots.setItem(0, new ItemStack(closestRecipe.output));
             } else {
+                currentErrorString = currentError.getFullErrorString(BindingTableError.NOTENOUGHEXP, this.inputSlots.getItem(0), closestRecipe);
                 this.resultSlots.setItem(0, new ItemStack(Items.AIR));
+                error = true;
             }
         } else if (recipesforitem.isEmpty()) {
             this.resultSlots.setItem(0, new ItemStack(Items.AIR));
-            System.out.println("no recipes for item " + this.inputSlots.getItem(0).getHoverName());
+            currentErrorString = currentError.getFullErrorString(BindingTableError.NORECIPE, this.inputSlots.getItem(0), null);
+            error = true;
         }
     }
 
@@ -156,17 +165,6 @@ public class BindingTableMenu extends ItemCombinerMenu {
     // numbers 9 - 35)
     // 36 - 44 = TileInventory slots, which map to our TileEntity slot numbers 0 -
     // 8)
-    private static final int HOTBAR_SLOT_COUNT = 9;
-    private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
-    private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
-    private static final int PLAYER_INVENTORY_SLOT_COUNT = PLAYER_INVENTORY_COLUMN_COUNT * PLAYER_INVENTORY_ROW_COUNT;
-    private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
-    private static final int VANILLA_FIRST_SLOT_INDEX = 0;
-    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
-
-    // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 2; // must be the number of slots you have!
-
 
     @Override
     public boolean stillValid(@SuppressWarnings("null") Player pPlayer) {

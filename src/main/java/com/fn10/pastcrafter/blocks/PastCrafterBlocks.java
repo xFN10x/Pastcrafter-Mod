@@ -2,7 +2,6 @@ package com.fn10.pastcrafter.blocks;
 
 import com.fn10.pastcrafter.PastCrafer;
 import com.fn10.pastcrafter.blocks.be.tiles.BindingTableBlock;
-import com.fn10.pastcrafter.blocks.be.tiles.BindingTableTile;
 import com.fn10.pastcrafter.blocks.be.tiles.PastExtracterBlock;
 import com.fn10.pastcrafter.blocks.be.tiles.PastExtracterTile;
 import com.fn10.pastcrafter.worldgen.tree.OldOakGrower;
@@ -49,13 +48,6 @@ public class PastCrafterBlocks {
                                                 () -> BlockEntityType.Builder
                                                                 .of(PastExtracterTile::new,
                                                                                 PastCrafterBlocks.Past_Extracter.get())
-                                                                .build(null));
-                public static final RegistryObject<BlockEntityType<BindingTableTile>> Binding_Table_Entity = TILE_ENTITY_TYPES
-
-                                .register("binding_table",
-                                                () -> BlockEntityType.Builder
-                                                                .of(BindingTableTile::new,
-                                                                                PastCrafterBlocks.Binding_Table.get())
                                                                 .build(null));
         }
 
